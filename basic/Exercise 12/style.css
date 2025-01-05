@@ -6,7 +6,7 @@ ol {
 
 /* Write your CSS below, don't change the rules above. */
 /* TODO 1: Set the CSS for all paragraph tags to "color: red" */
-note {
+p {
   color: red;
 }
 /*  TODO 2: Set the CSS for all elements with a class of "note" to "font-size: 20px" */
