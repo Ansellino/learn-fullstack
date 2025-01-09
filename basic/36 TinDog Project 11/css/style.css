@@ -26,3 +26,96 @@
   height: 100px;
   border-radius: 50%;
 }
+
+.bg-body-secondary {
+  background-color: #f8f9fa;
+}
+
+.text-body-emphasis {
+  color: #f8f9fa;
+}
+
+.text-body-secondary {
+  color: #6c757d;
+}
+
+.text-bg-dark {
+  color: #343a40;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.pricing-header {
+  margin-top: 5rem;
+}
+
+.pricing-card-title {
+  font-size: 2.5rem;
+}
+
+.border-dark {
+  border: 1px solid #343a40;
+}
+
+.border-dark .card-header {
+  background-color: #343a40;
+  border-bottom: 1px solid #343a40;
+}
+
+.border-dark .card-body {
+  background-color: #f8f9fa;
+}
+
+.border-dark .card-body .btn {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.border-dark .card-body .btn:hover {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.border-dark .card-body .btn:active {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.border-dark .card-body .btn:focus {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.border-dark .card-body .btn:visited {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+#footer .nav-link {
+  color: #f8f9fa;
+}
+
+#footer .nav-link:hover {
+  color: #f8f9fa;
+}
+
+#footer .nav-link:active {
+  color: #f8f9fa;
+}
+
+#footer .nav-link:focus {
+  color: #f8f9fa;
+}
+
+#footer .nav-link:visited {
+  color: #f8f9fa;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+}
