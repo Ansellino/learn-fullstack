@@ -278,7 +278,7 @@ img {
 /* Skills Section */
 .skills {
   padding: 4rem 2rem;
-  background-image: url("../img/170781-844048821_medium-ezgif.com-video-to-gif-converter.gif");
+  background-image: linear-gradient(to right top, #ffffff, #cacaca, #979797, #676767, #3b3b3b, #302c31, #281c23, #220c12, #350e19, #490d1f, #5e0924, #740027);
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -452,7 +452,7 @@ img {
 
 /* ===== PROJECT =====*/
 .project{
-  background-image: url("../img/6797-196071980_medium-ezgif.com-video-to-gif-converter.gif");
+  background-image: linear-gradient(to right top, #ffffff, #cacaca, #979797, #676767, #3b3b3b, #302c31, #281c23, #220c12, #350e19, #490d1f, #5e0924, #740027);
   background-position: center;
   background-size: cover;
   overflow: hidden;
