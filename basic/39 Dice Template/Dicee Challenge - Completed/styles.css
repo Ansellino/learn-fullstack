@@ -10,11 +10,6 @@
 
 }
 
-.roll{
-  margin-top: 40px;
-  text-align: center;
-}
-
 body {
   background-color: #393E46;
 }
@@ -42,23 +37,5 @@ footer {
   color: #EEEEEE;
   text-align: center;
   font-family: 'Indie Flower', cursive;
-}
 
-button {
-  background-color: #4ECCA3; 
-  color: #393E46;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 2rem;
-  font-family: 'Indie Flower', cursive;
-  cursor: pointer;
-  margin-bottom: 20px; 
-  height: 100px;
-  width: 250px;
-}
-
-button:hover {
-  background-color: #393E46; 
-  color: #4ECCA3; 
 }
