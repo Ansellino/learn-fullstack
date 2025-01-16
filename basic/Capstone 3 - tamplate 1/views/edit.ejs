@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Postingan</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Edit Postingan</h1>
+    <form action="/edit/<%= index %>" method="POST">
+      <label for="title">Judul:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="<%= post.title %>"
+        required
+      />
+      <label for="content">Konten:</label>
+      <textarea id="content" name="content" required>
+<%= post.content %></textarea
+      >
+      <button type="submit">Update</button>
+    </form>
+    <a href="/">Kembali ke Beranda</a>
+  </body>
+</html>

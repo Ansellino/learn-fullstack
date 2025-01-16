@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Blog</h1>
+    <a href="/new">Buat Postingan Baru</a>
+    <ul>
+      <% posts.forEach((post, index) => { %>
+      <li>
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <a href="/edit/<%= index %>">Edit</a>
+        <form
+          action="/delete/<%= index %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit">Hapus</button>
+        </form>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

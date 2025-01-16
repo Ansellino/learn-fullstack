@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buat Postingan Baru</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Buat Postingan Baru</h1>
+    <form action="/posts" method="POST">
+      <label for="title">Judul:</label>
+      <input type="text" id="title" name="title" required />
+      <label for="content">Konten:</label>
+      <textarea id="content" name="content" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+    <a href="/">Kembali ke Beranda</a>
+  </body>
+</html>
