@@ -1,0 +1,75 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/menu-bar.ejs") %>
+
+<div class="settings-page">
+    <h1>Units</h1>
+    <form action="/settings" method="POST" class="settings-form" >
+        <div class="settings-container">
+            
+            <!-- Temperature Settings -->
+            <div id="temp">
+                <h2>TEMPERATURE</h2>
+                <div class="filter-switch">
+                    <input <% if (userSettings && userSettings.temp === 'Celsius') { %>checked<% } %> id="temp-option1" name="temp" value="Celsius" type="radio" />
+                    <label class="option" for="temp-option1">Celsius</label>
+                    <input <% if (userSettings && userSettings.temp === 'Fahrenheit') { %>checked<% } %> id="temp-option2" name="temp" value="Fahrenheit" type="radio" />
+                    <label class="option" for="temp-option2">Fahrenheit</label>
+                    <span class="background"></span>
+                </div>
+            </div>
+
+            <!-- Wind Speed Settings -->
+            <div id="wind">
+                <h2>WIND SPEED</h2>
+                <div class="filter-switch">
+                    <input <% if (userSettings && userSettings.wind === 'km/h') { %>checked<% } %> id="wind-option1" name="wind" value="km/h" type="radio" />
+                    <label class="option" for="wind-option1">km/h</label>
+                    <input <% if (userSettings && userSettings.wind === 'mph') { %>checked<% } %> id="wind-option2" name="wind" value="mph" type="radio" />
+                    <label class="option" for="wind-option2">mph</label>
+                    <span class="background"></span>
+                </div>
+            </div>
+
+            <!-- Pressure Settings -->
+            <div id="pressure">
+                <h2>PRESSURE</h2>
+                <div class="filter-switch">
+                    <input <% if (userSettings && userSettings.pressure === 'hpa') { %>checked<% } %> id="pressure-option1" name="pressure" value="hpa" type="radio" />
+                    <label class="option" for="pressure-option1">hpa</label>
+                    <input <% if (userSettings && userSettings.pressure === 'inches') { %>checked<% } %> id="pressure-option2" name="pressure" value="inches" type="radio" />
+                    <label class="option" for="pressure-option2">Inches</label>
+                    <span class="background"></span>
+                </div>
+            </div>
+
+            <!-- Distance Settings -->
+            <div id="distance">
+                <h2>DISTANCE</h2>
+                <div class="filter-switch">
+                    <input <% if (userSettings && userSettings.distance === 'Kilometers') { %>checked<% } %> id="distance-option1" name="distance" value="Kilometers" type="radio" />
+                    <label class="option" for="distance-option1">Kilometers</label>
+                    <input <% if (userSettings && userSettings.distance === 'Miles') { %>checked<% } %> id="distance-option2" name="distance" value="Miles" type="radio" />
+                    <label class="option" for="distance-option2">Miles</label>
+                    <span class="background"></span>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="form-action">
+                <button type="submit" class="save-button">Save Settings</button>
+            </div>
+
+        </div>
+    </form>
+    
+</div>
+<div class="another-container">
+    <h2>Thank you <br> for using my App ♥️ </h2>
+    <ul>
+        <li><img src="images/linkedin.png" alt="linkedin icon"><a href="https://www.linkedin.com/in/devavrat-dhaygude-1bb892303/">Follow me on Linkedin</a></li>
+        <li><img src="images/github.png" alt="github icon"><a href="https://github.com/DevavratD">Follow me on Github</a></li>
+        <li><img src="images/instagram.png" alt="instagram icon"><a href="https://www.instagram.com/idevavrat/">Follow me on Instagram</a></li>
+    </ul>
+</div>
+<%- include("partials/footer.ejs") %>

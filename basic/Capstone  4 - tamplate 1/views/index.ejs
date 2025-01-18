@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container">
+        <!-- Spinner for Loading -->
+
+        <!-- Main Content -->
+
+        <div class="left">
+            <img src=<%=image %> alt="loading animation">
+            <div id="loading-spinner" style="display: none;">
+                <p>Loading</p>
+                <div class="spinner"></div>
+            </div>
+
+        </div>
+        <div class="right">
+            <img src=<%=image %> alt="img">
+            <h1>Breezy</h1>
+            <h2>Weather App</h2>
+            <button id="start">Get Started</button>
+
+            
+        </div>
+
+    </div>
+
+
+
+
+    <%- include("partials/footer.ejs") %>

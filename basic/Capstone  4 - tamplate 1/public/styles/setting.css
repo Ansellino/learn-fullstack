@@ -1,0 +1,251 @@
+/* Base styling for the filter switch */
+/* Hide the input elements */
+/* Style the labels (options) */
+/* Styling for the moving background */
+/* Adjust background position when the second option is selected */
+/* Highlight the selected label */
+/* Dim the unselected labels */
+.filter-switch {
+  border: 2px solid rgb(11, 19, 30);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 400px;
+  overflow: hidden;
+  background-color: rgb(11, 19, 30);
+}
+.filter-switch input {
+  display: none;
+}
+.filter-switch label {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.5s;
+  font-weight: 500;
+  font-size: 18px;
+  color: #9399a2;
+}
+.filter-switch .background {
+  position: absolute;
+  width: 49%;
+  height: 38px;
+  background-color: #202b3b;
+  top: 6px;
+  left: 4px;
+  border-radius: 30px;
+  transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#temp-option2:checked ~ .background {
+  left: 50%;
+}
+#temp-option2:checked + label[for=temp-option2] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#temp-option2:not(:checked) + label[for=temp-option2] {
+  color: #9399a2;
+}
+
+#wind-option2:checked ~ .background {
+  left: 50%;
+}
+#wind-option2:checked + label[for=wind-option2] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#wind-option2:not(:checked) + label[for=wind-option2] {
+  color: #9399a2;
+}
+
+#pressure-option2:checked ~ .background {
+  left: 50%;
+}
+#pressure-option2:checked + label[for=pressure-option2] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#pressure-option2:not(:checked) + label[for=pressure-option2] {
+  color: #9399a2;
+}
+
+#distance-option2:checked ~ .background {
+  left: 50%;
+}
+#distance-option2:checked + label[for=distance-option2] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#distance-option2:not(:checked) + label[for=distance-option2] {
+  color: #9399a2;
+}
+
+#temp-option1:checked + label[for=temp-option1] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#temp-option1:not(:checked) + label[for=temp-option1] {
+  color: #9399a2;
+}
+
+#wind-option1:checked + label[for=wind-option1] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#wind-option1:not(:checked) + label[for=wind-option1] {
+  color: #9399a2;
+}
+
+#pressure-option1:checked + label[for=pressure-option1] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#pressure-option1:not(:checked) + label[for=pressure-option1] {
+  color: #9399a2;
+}
+
+#distance-option1:checked + label[for=distance-option1] {
+  color: hsl(216, 7%, 85%);
+  font-weight: bold;
+}
+#distance-option1:not(:checked) + label[for=distance-option1] {
+  color: #9399a2;
+}
+
+.settings-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+.settings-page > h1 {
+  margin-left: 5px;
+}
+
+.settings-container {
+  position: relative;
+  background-color: #202b3b;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 35px;
+  padding: 50px 100px;
+  margin-top: 20px;
+}
+.settings-container > #temp {
+  margin-bottom: 50px;
+}
+.settings-container > #wind {
+  margin-bottom: 50px;
+}
+.settings-container > #pressure {
+  margin-bottom: 50px;
+}
+.settings-container > #distance {
+  margin-bottom: 50px;
+}
+
+#temp > h2 {
+  margin-bottom: 15px;
+  color: #9399a2;
+}
+
+#wind > h2 {
+  margin-bottom: 15px;
+  color: #9399a2;
+}
+
+#pressure > h2 {
+  margin-bottom: 15px;
+  color: #9399a2;
+}
+
+#distance > h2 {
+  margin-bottom: 15px;
+  color: #9399a2;
+}
+
+.page-container {
+  display: flex;
+}
+.page-container > .menu-bar {
+  height: 100vh;
+}
+
+.form-action button {
+  left: 32%;
+  bottom: 30px;
+  position: absolute;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  border: none;
+  background-color: rgb(11, 19, 30);
+  color: #9399a2;
+  transition: transform 0.3 ease-in-out;
+}
+.form-action button:hover {
+  color: hsl(216, 7%, 81%);
+  transform: scale(1.1);
+}
+
+.another-container {
+  color: #9399a2;
+  margin-left: -175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.another-container > h2 {
+  font-size: 3.3rem;
+  margin-bottom: 30px;
+}
+.another-container > ul {
+  list-style: none;
+}
+.another-container ul li {
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+.another-container ul li img {
+  width: 20px;
+}
+.another-container ul li a {
+  text-decoration: none;
+  color: #9399a2;
+}
+.another-container ul li a:hover {
+  text-decoration: underline;
+  color: hsl(216, 7%, 75%);
+}
+
+@media (max-width: 768px) {
+  .settings-page {
+    align-items: center;
+  }
+  .another-container {
+    margin: 10px 0;
+    align-items: center;
+  }
+  .another-container h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/*# sourceMappingURL=setting.css.map */

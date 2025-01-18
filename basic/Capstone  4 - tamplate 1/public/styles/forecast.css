@@ -1,0 +1,127 @@
+.todays-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 92%;
+  justify-items: center;
+  position: relative;
+}
+.todays-container > .today-card:nth-child(3) {
+  border-left: 1px solid rgb(48, 63, 86);
+  border-right: 1px solid rgb(48, 63, 86);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.todays-container > .today-card:nth-child(6) {
+  border-left: 1px solid rgb(48, 63, 86);
+  border-right: 1px solid rgb(48, 63, 86);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.today-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.today-card #time {
+  color: #9399a2;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.today-card #temp {
+  font-size: 1.5rem;
+}
+
+#horizontal {
+  background-color: rgb(48, 63, 86);
+  border: none;
+  position: absolute;
+  height: 1px;
+  width: 500px;
+  top: 50%;
+  border-radius: 50%;
+}
+
+.three-days {
+  display: flex;
+  position: relative;
+}
+.three-days h3 {
+  position: absolute;
+  font-size: 1.1rem;
+}
+
+.forcast-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  flex-grow: 1;
+  margin-top: 15px;
+}
+.forcast-container > .forecast-card:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 83%;
+  height: 1px;
+  background-color: rgb(48, 63, 86);
+}
+.forcast-container > .forecast-card:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 83%;
+  height: 1px;
+  background-color: rgb(48, 63, 86);
+}
+
+.forecast-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  color: #9399a2;
+  font-size: 1.2rem;
+  position: relative;
+}
+.forecast-card > #day {
+  color: #9399a2;
+  font-weight: 500;
+}
+.forecast-card #high {
+  color: #D2D8E0;
+}
+
+#weather-condition {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#weather-condition img {
+  width: 80px;
+}
+#weather-condition > p {
+  color: #D2D8E0;
+}
+
+@media (max-width: 768px) {
+  .today-card #time {
+    color: #9399a2;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .today-card #temp {
+    font-size: 1.2rem;
+  }
+  .forecast-card {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=forecast.css.map */

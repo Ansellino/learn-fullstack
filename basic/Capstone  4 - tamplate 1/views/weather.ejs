@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+    <div class="weather-container">
+        
+        <%- include("partials/menu-bar.ejs") %>
+            <div class="ui-middle ">
+                
+                    <div class="search">
+                        
+                        <input type="search" name="city" id="search-bar" placeholder="Search for cities" required>
+                        <button id="search-btn"><img src="images/search.png" alt="search icon"></button>
+                    </div>
+               
+                
+                <div class="content">
+                    <div class="content-title">
+                        <h1 id="city"><%= weatherData.location.name %></h1>
+                        <h2 id="state-country"><%= `${weatherData.location.region},${weatherData.location.country}` %></h2>
+                    </div>
+
+                    <p id="content-temp"><%= weatherData.current.temp_c %>&deg;</p>
+
+                    <img id="content-img" src=<%= dayImg %> alt="weather image">
+
+                    <p id="content-condition"><%= weatherData.current.condition.text%></p>
+                </div>
+                <div class="condition">
+                    <h2>AIR CONDITION</h2>
+                    <div class="condition-container">
+                        <% for(let i=0;i<9;i++){ %>
+                            <%- include("partials/condition.ejs" , {i:i}) %>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-right ">
+                <div class="todays-forecast ">
+                    <h3>TODAYS FORECAST</h3>
+                    <div class="todays-container">
+                        <hr id="horizontal">
+                        <%for(let i=0;i<6;i++){ %>
+                            <%- include("partials/today.ejs" ,{i:i}) %>
+                                <% } %>
+                    </div>
+                </div>
+                <div class="three-days ">
+                    <h3>3-DAY FORECAST</h3>
+                    <div class="forcast-container">
+                        <%for(let i=0;i<3;i++){ %>
+                            <%- include("partials/forecast.ejs",{i:i}) %>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("partials/footer.ejs") %>
