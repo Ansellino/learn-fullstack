@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+
+
+  
+  <header>  <!---header and add a new book button -->
+    <div class="header-left">
+      <h1>My notes and Highlights</h1>
+    </div>
+    <div class="header-right">
+      <form class="tab-view tab-view-height-auto" action="/search" method="post">
+        <input type="submit" name="add" value="Add a new book" id="tab">
+        <label for="tab"></label>
+      </form>
+    </div>
+  </header>
+
+  <div class="container"> <!---main page--->
+        <div class="sidebar"> <!---left sidebar--->
+          <div id="title_sidebar" style="background-color: #dcd8d8; border-bottom:1px solid #b9b9b9"><h4 >Annotated books from library</h4>
+          </div>
+          <div class="jeez">
+          <% for(let item of items){%>
+              <form class="blabla" action="/item" method="post">
+                <button type="submit" class="btn-link" name="item" value="<%= item.id %>">
+                  <div class="book-item">
+                    <a><img src="https://covers.openlibrary.org/b/isbn/<%= item.isbn %>-L.jpg" style="width:75px;"></a>
+                    <span class="book-title">
+                      <%= item.title %>
+                    </span><br>
+                    <span>
+                      By: <%= item.author %>
+                    </span><br>
+                    </a>
+                  </div>
+                </button>
+              </form>
+          <% } %>
+            </div>
+        </div>
+
+        
+        <div class="main-content"><!-- notes content -->
+          <div class="book-details"><!-- name and cover of selected book -->
+            <p> Your notes for:</p>
+            <div class="book-details-header">
+              <a><img src="https://covers.openlibrary.org/b/isbn/<%= id.isbn %>-L.jpg" style="width:65px;"></a>
+              <div class="title_author">
+              <h3 id="title<%=id.id%>"> <%= id.title %> </h3>
+              <p><%=id.author %></p>
+                </div>
+            </div>
+            <div id="number_note">
+              <h4> No. of notes: <%= quotes.length %></h4>
+              <div>
+                <button id="newNoteButton" onclick="updateBook()">Add a new note </button>
+                <form id="addNew" action="/add" method="post">
+                  <input hidden name="book_id" value="<%=id.id %>"></input>
+                  <div hidden id="textbox">
+                    <textarea name="text" rows="4" cols="50" placeholder="enter your note here:"></textarea><br>
+                    <textarea name="page" value="1" rows="1" cols="50"
+                      placeholder="enter page number here:"></textarea><br>
+                    <button onclick="return confirm('Your note is added');" type="submit">submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="allQuotes"> <!-- All the quotes for book selected -->
+            <% for(let q of quotes){%>
+              <div class="highlight" id="quote <%=q.id %>">
+                <p><%=q.quote%></p>
+                <div class="navbar"> <!-- page number and form -->
+                  <div> <p>Page number:<%=q.page%></p>
+                    </div>
+                  <div>
+                    <form id="tableForm" action="/menu" method="post">
+                      <select name="menu" id="make-select<%=q.id%>" onchange="updateModels('<%=q.id%>')">
+                        <option value="">options</option>
+                        <option value="edit" name="edit">edit</option>
+                        <option value="delete" name="delete">delete</option>
+
+                      </select>
+
+                      <input hidden id="delete<%=q.id%>" type="submit"
+                        onclick="return confirm('Are you sure?');"></input>
+                      <input hidden name="quote_id" value="<%=q.id %>"> </input>
+                      <input hidden name="book_id" value="<%=id.id %>"> </input>
+
+                      <div hidden id="edit<%=q.id%>">
+                        <textarea name="text" rows="4" cols="50"></textarea>
+                        <br><button type="submit">submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+          </div>
+        </div>
+  </div>
+</body>
+
+
+<script>
+  function updateModels(id) {
+    var make = document.getElementById("make-select" + id).value;
+
+    if (make == 'edit') {
+      document.getElementById("edit" + id).removeAttribute("hidden");
+      document.getElementById("make-select" + id).setAttribute("hidden", true)
+    } else if (make == 'delete') {
+      document.getElementById("delete" + id).click();
+      // document.getElementById("delete"+id).removeAttribute("hidden");
+      document.getElementById("make-select" + id).setAttribute("hidden", true)
+
+    };
+  };
+  function updateBook() {
+    document.getElementById('textbox').removeAttribute("hidden");
+    document.getElementById('newNoteButton').setAttribute("hidden", true);
+  };
+
+</script>
+
+</html>

@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff; /* Light gray background */
+}
+
+header {
+  background-color: white;
+  padding: 1rem;
+  margin-right: 20px;
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.container {
+  display: flex;
+  overflow-y: auto;
+  margin-top: 90px; /* Adjust based on header height */
+  height: calc(100vh - 60px);
+  padding-right: 20px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 20vw;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #dcd8d8;
+  border-right: 1px solid #dddddd;
+}
+
+.main-content {
+  padding-left: 40px;
+  width: 65vw;
+}
+
+.book-item {
+  background-color: #dcd8d8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: inherit;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.highlight {
+  margin-bottom: 10px;
+  padding-left: 8px;
+  margin-left: -15px;
+  border-left: 4px solid #f58f00;
+}
+.highlight span {
+  display: block;
+  font-size: small;
+  color: #edd6d6;
+}
+.highlight .options {
+  text-align: right;
+  color: #0076c0;
+}
+
+.book-title {
+  font-weight: bold;
+  margin: 10px;
+}
+.book-author {
+  font-size: small;
+  color: #777;
+}
+.book-details {
+  margin-bottom: 20px;
+}
+.book-details span {
+  font-size: small;
+  color: #777;
+}
+
+#title_sidebar {
+  position: fixed;
+  z-index: 0;
+  text-align: center;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blabla button {
+  border: none;
+  cursor: pointer;
+}
+
+.book-details-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.title_author {
+  margin-left: 15px;
+}
+#number_note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-link {
+  width: 20vw;
+  padding: 0px;
+}
+
+.book-item img {
+  padding-top: 5px;
+}
+
+.jeez {
+  width: 20vw;
+  margin-top: 60px;
+}
+
+#title-sidebar h4 {
+  padding: 10px;
+  display: flex;
+  background-color: #dcd8d8;
+}
+
+.sidebar {
+  background-color: #dcd8d8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+
+select {
+  border: none;
+  cursor: pointer;
+  color: #0076c0;
+}
+
+.sidebar .book-item:hover {
+  background-color: #f8f8f8; /* Change to your desired color */
+}

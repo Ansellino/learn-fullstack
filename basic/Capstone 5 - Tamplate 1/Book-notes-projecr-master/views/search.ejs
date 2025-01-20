@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Search by ISBN</title>
+</head> 
+<body>
+  <h1>Search for a Book by ISBN</h1>
+  
+  <label for="isbnInput">Enter ISBN:</label>
+  <input type="text" id="isbnInput" placeholder="e.g., 9780321765723">
+  <button onclick="searchBookByISBN()">Search</button>
+  
+
+  <div id="results"></div>
+  <div id="error-message" style="color: red;"></div> 
+
+  <form  method="post" action="/send">
+    <button hidden id="formNew" type="submit">add this book    </button>
+
+        <input hidden type="text"  name="author" id="authorNew"></input>
+        <input hidden type="text" name="title" id="titleNew"></input>
+        <input hidden name="isbn"  id="isbnNew"></input>
+
+  
+  </form>
+  
+
+
+
+  <script>
+    
+    async function searchBookByISBN() { // Make function async
+      const isbn = document.getElementById("isbnInput").value;
+      const resultsDiv = document.getElementById("results");
+      document.getElementById("formNew").removeAttribute("hidden", true);
+      resultsDiv.innerHTML = ""; // Clear previous results
+
+
+
+      if (!isbn || isbn.trim() === "") {
+        resultsDiv.innerHTML = "<p style='color: red;'>Please enter an ISBN.</p>";
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("ISBN not found.");
+          } else {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+        }
+        const bookData = await response.json();
+
+        const title = bookData.title;
+        //   send the result back to server
+        // document.getElementById("authorNew").value=authors;
+        document.getElementById("titleNew").value=title;
+        document.getElementById("isbnNew").value=isbn;
+
+        let authors = [];
+
+        if (bookData.authors) {
+           authors = await Promise.all(bookData.authors.map(async author => {
+                const authorResponse = await fetch(`https://openlibrary.org${author.key}.json`);
+                if (!authorResponse.ok){
+                    console.error(`Error fetching author data for ${author.key}: ${authorResponse.status}`);
+                    return "Unknown Author"; // Return a placeholder if author fetch fails
+                }
+                const authorData = await authorResponse.json();
+                return authorData.name;
+
+            }));
+        } else {
+            authors.push("Unknown");
+        }
+
+
+        const coverUrl = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
+
+        resultsDiv.innerHTML = `<h2>${title}</h2><p>Authors: ${authors.join(", ")}</p><img src="${coverUrl}" alt="Book Cover" onerror="this.onerror=null;this.src='no-cover.png';">`;
+        document.getElementById("authorNew").value=authors;
+
+      } catch (error) {
+        console.error("Error:", error);
+        resultsDiv.innerHTML = `<p style="color: red;">${error.message || "An error occurred. Please try again later."}</p>`;
+      }
+    
+    }
+  </script>
+    
+
+</body>
+</html>
